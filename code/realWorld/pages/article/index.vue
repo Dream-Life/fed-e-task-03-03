@@ -123,8 +123,7 @@
 
 <script>
 export default {
-    name: 'article',
-    middleware:['auth']
+    name: 'article'
 }
 </script>
 
