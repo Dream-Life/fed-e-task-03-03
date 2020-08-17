@@ -13,10 +13,19 @@
           <div class="feed-toggle">
             <ul class="nav nav-pills outline-active">
               <li class="nav-item">
-                <a class="nav-link disabled" href="">Your Feed</a>
+                <nuxt-link class="nav-link" :class="{active: tab === 'your_feed'}" :to="{
+                  name: 'home', query: {tab: 'your_feed'}
+                }">Your Feed</nuxt-link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" href="">Global Feed</a>
+               <li class="nav-item">
+                <nuxt-link class="nav-link" :class="{active: tab === 'global_feed'}" :to="{
+                  name: 'home'
+                }">Global Feed</nuxt-link>
+              </li>
+              <li class="nav-item" v-if="tag">
+                <nuxt-link class="nav-link" :class="{active: tab === 'tag'}" :to="{
+                  name: 'home', query:{tab:'tag', tag: tag}
+                }"># {{tag}}</nuxt-link>
               </li>
             </ul>
           </div>
@@ -40,11 +49,13 @@
                 >
                   {{ article.author.username }}
                 </nuxt-link>
-                <span class="date">{{ article.createdAt }}</span>
+                <span class="date">{{ article.createdAt | date('MMM DD, YYYY') }}</span>
               </div>
               <button
                 class="btn btn-outline-primary btn-sm pull-xs-right"
                 :class="{ active: article.favorited }"
+                @click="onFavorite(article)"
+                :disabled ="article.favoriteDisabled"
               >
                 <i class="ion-heart"></i> {{ article.favoritesCount }}
               </button>
@@ -71,14 +82,11 @@
         <div class="col-md-3">
           <nav>
             <ul class="pagination">
-              <li class="page-item active">
-                <nuxt-link class="page-link" to="/">1</nuxt-link>
-              </li>
-              <li class="page-item">
-                <nuxt-link class="page-link" to="/">2</nuxt-link>
-              </li>
-              <li class="page-item">
-                <nuxt-link class="page-link" to="/">3</nuxt-link>
+              <li class="page-item" 
+               v-for="(item, index) in totalPage" :key="'page'+index" :class="page === item ? 'active':''">
+                <nuxt-link class="page-link" :to="`/?tab=${tab}&page=${item}&tag=${tag}`">
+                {{item}}
+                </nuxt-link>
               </li>
             </ul>
           </nav>
@@ -87,14 +95,9 @@
             <p>Popular Tags</p>
 
             <div class="tag-list">
-              <a href="" class="tag-pill tag-default">programming</a>
-              <a href="" class="tag-pill tag-default">javascript</a>
-              <a href="" class="tag-pill tag-default">emberjs</a>
-              <a href="" class="tag-pill tag-default">angularjs</a>
-              <a href="" class="tag-pill tag-default">react</a>
-              <a href="" class="tag-pill tag-default">mean</a>
-              <a href="" class="tag-pill tag-default">node</a>
-              <a href="" class="tag-pill tag-default">rails</a>
+              <nuxt-link v-for="(item,index) in tags" :to="{
+                name: 'home', query: {tag:item, tab:tab}
+              }" :key="'tag'+index" class="tag-pill tag-default">{{item}}</nuxt-link>
             </div>
           </div>
         </div>
@@ -104,22 +107,37 @@
 </template>
 
 <script>
-import { getArticles } from "@/apis/acrticle.js";
+import { getArticles, getYourFeedArticles,addFavorite, deleteFavorite } from "@/apis/acrticle.js";
+import {getTags} from '@/apis/tag.js'
 export default {
   name: "Home",
   async asyncData({ query }) {
     const page = Number.parseInt(query.page || 1);
     const limit = 20;
-    const { data } = await getArticles({
-      limit,
-      offset: (page - 1) * limit,
-    });
-    console.log(data);
+    const tab = query.tab || 'global_feed'
+    const tag = query.tag
+    const loadArticles = tab === 'global_feed' ? getArticles : getYourFeedArticles
+    const [articleRes,tagRes] = await Promise.all([
+      loadArticles({
+        limit,
+        offset: (page - 1) * limit,
+        tag: query.tag
+      }),
+      getTags()
+    ])
+
+    const {articles, articlesCount} = articleRes.data
+    const { tags} = tagRes.data
+    // console.log(data);
+    articles.forEach(article=>article.favoriteDisabled = false)
     return {
-      articles: data.articles,
-      articlesCount: data.articlesCount,
+      articles,
+      articlesCount,
+      tags,
       limit,
       page,
+      tab,
+      tag
     };
   },
   computed: {
@@ -127,6 +145,22 @@ export default {
       return Math.ceil(this.articlesCount / this.limit);
     },
   },
+  watchQuery: ['page','tab','tag'],
+  methods:{
+    async onFavorite(article){
+      article.favoriteDisabled = true
+      if(!article.favorited){
+        await addFavorite(article.slug)
+        article.favorited = true
+        article.favoritesCount++
+      }else{
+        await deleteFavorite(article.slug)
+        article.favorited = false
+        article.favoritesCount--
+      }
+      article.favoriteDisabled = false
+    }
+  }
 };
 </script>
 

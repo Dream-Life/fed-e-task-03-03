@@ -1,7 +1,7 @@
 
 export default {
     router: {
-        linkActiveClass: 'active',
+        linkExactActiveClass: 'active',
         extendRoutes(routes, resolve){
             routes.splice(0)
             routes.push(...[
@@ -48,5 +48,9 @@ export default {
                 }
             ])
         }
-    }
+    },
+    plugins: [
+        '~/plugins/request.js',
+        '~/plugins/dayjs.js'
+    ]
 }

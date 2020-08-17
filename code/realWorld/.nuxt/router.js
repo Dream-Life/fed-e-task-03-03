@@ -23,8 +23,8 @@ Vue.use(Router)
 export const routerOptions = {
   mode: 'history',
   base: decodeURI('/'),
-  linkActiveClass: 'active',
-  linkExactActiveClass: 'nuxt-link-exact-active',
+  linkActiveClass: 'nuxt-link-active',
+  linkExactActiveClass: 'active',
   scrollBehavior,
 
   routes: [{
