@@ -1499,19 +1499,19 @@ if (false) {}
 
 
 
-const _ef73aa50 = () => interopDefault(__webpack_require__.e(/* import() */ 7).then(__webpack_require__.bind(null, 31)));
+const _4a2ef18f = () => interopDefault(__webpack_require__.e(/* import() */ 7).then(__webpack_require__.bind(null, 31)));
 
-const _5960380d = () => interopDefault(__webpack_require__.e(/* import() */ 3).then(__webpack_require__.bind(null, 30)));
+const _0d2d7ef8 = () => interopDefault(__webpack_require__.e(/* import() */ 3).then(__webpack_require__.bind(null, 30)));
 
-const _5a41dc0a = () => interopDefault(__webpack_require__.e(/* import() */ 4).then(__webpack_require__.bind(null, 32)));
+const _33f71864 = () => interopDefault(__webpack_require__.e(/* import() */ 4).then(__webpack_require__.bind(null, 32)));
 
-const _70894fbb = () => interopDefault(__webpack_require__.e(/* import() */ 5).then(__webpack_require__.bind(null, 33)));
+const _288d4038 = () => interopDefault(__webpack_require__.e(/* import() */ 5).then(__webpack_require__.bind(null, 33)));
 
-const _31e0b851 = () => interopDefault(__webpack_require__.e(/* import() */ 6).then(__webpack_require__.bind(null, 34)));
+const _1cb2ad48 = () => interopDefault(__webpack_require__.e(/* import() */ 6).then(__webpack_require__.bind(null, 34)));
 
-const _7c77511b = () => interopDefault(__webpack_require__.e(/* import() */ 2).then(__webpack_require__.bind(null, 35)));
+const _3e6017d2 = () => interopDefault(__webpack_require__.e(/* import() */ 2).then(__webpack_require__.bind(null, 35)));
 
-const _57539308 = () => interopDefault(__webpack_require__.e(/* import() */ 1).then(__webpack_require__.bind(null, 29))); // TODO: remove in Nuxt 3
+const _5af8b99e = () => interopDefault(__webpack_require__.e(/* import() */ 1).then(__webpack_require__.bind(null, 29))); // TODO: remove in Nuxt 3
 
 
 const emptyFn = () => {};
@@ -1531,34 +1531,34 @@ const routerOptions = {
   scrollBehavior: router_scrollBehavior,
   routes: [{
     path: "/",
-    component: _ef73aa50,
+    component: _4a2ef18f,
     children: [{
       path: "",
-      component: _5960380d,
+      component: _0d2d7ef8,
       name: "home"
     }, {
       path: "/login",
-      component: _5a41dc0a,
+      component: _33f71864,
       name: "login"
     }, {
       path: "/register",
-      component: _5a41dc0a,
+      component: _33f71864,
       name: "register"
     }, {
       path: "/profile/:username",
-      component: _70894fbb,
+      component: _288d4038,
       name: "profile"
     }, {
       path: "/settings",
-      component: _31e0b851,
+      component: _1cb2ad48,
       name: "settings"
     }, {
       path: "/editor",
-      component: _7c77511b,
+      component: _3e6017d2,
       name: "editor"
     }, {
       path: "/article/:slug",
-      component: _57539308,
+      component: _5af8b99e,
       name: "article"
     }]
   }],
@@ -1735,7 +1735,7 @@ var nuxt_error_component = Object(componentNormalizer["a" /* default */])(
   false,
   injectStyles,
   null,
-  "15cb7eec"
+  "6fb9d5e0"
   
 )
 
@@ -2039,7 +2039,7 @@ var nuxt_loading_component = Object(componentNormalizer["a" /* default */])(
   false,
   nuxt_loading_injectStyles,
   null,
-  "473e7120"
+  "7bede378"
   
 )
 
@@ -2065,7 +2065,7 @@ var default_component = Object(componentNormalizer["a" /* default */])(
   false,
   null,
   null,
-  "29529fe0"
+  "77da9d98"
   
 )
 

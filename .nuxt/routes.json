@@ -1,51 +1,51 @@
 [
   {
     "path": "/",
-    "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/layout",
+    "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/layout",
     "children": [
       {
         "path": "",
         "name": "home",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/home",
-        "_name": "_5960380d"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/home",
+        "_name": "_0d2d7ef8"
       },
       {
         "path": "/login",
         "name": "login",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/login",
-        "_name": "_5a41dc0a"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/login",
+        "_name": "_33f71864"
       },
       {
         "path": "/register",
         "name": "register",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/login",
-        "_name": "_5a41dc0a"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/login",
+        "_name": "_33f71864"
       },
       {
         "path": "/profile/:username",
         "name": "profile",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/profile",
-        "_name": "_70894fbb"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/profile",
+        "_name": "_288d4038"
       },
       {
         "path": "/settings",
         "name": "settings",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/settings",
-        "_name": "_31e0b851"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/settings",
+        "_name": "_1cb2ad48"
       },
       {
         "path": "/editor",
         "name": "editor",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/editor",
-        "_name": "_7c77511b"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/editor",
+        "_name": "_3e6017d2"
       },
       {
         "path": "/article/:slug",
         "name": "article",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/code/realWorld/pages/article",
-        "_name": "_57539308"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/article",
+        "_name": "_5af8b99e"
       }
     ],
-    "_name": "_ef73aa50"
+    "_name": "_4a2ef18f"
   }
 ]
