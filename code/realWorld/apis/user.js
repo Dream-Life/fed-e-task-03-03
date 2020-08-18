@@ -21,6 +21,15 @@ export const updateUser = data =>{
     return request({
         method: 'PUT',
         url:'/api/user',
-        data
+        params:{
+            user:data
+        }
+    })
+}
+
+export const getProfile = username =>{
+    return request({
+        method: 'GET',
+        url:`/api/profiles/${username}`
     })
 }

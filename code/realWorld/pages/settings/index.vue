@@ -9,19 +9,19 @@
             <form @submit.prevent="onSubmit">
             <fieldset>
                 <fieldset class="form-group">
-                    <input class="form-control" type="text" placeholder="URL of profile picture">
+                    <input v-model="currentUser.image"  class="form-control" type="text" placeholder="URL of profile picture">
                 </fieldset>
                 <fieldset class="form-group">
-                    <input class="form-control form-control-lg" type="text" placeholder="Your Name">
+                    <input v-model="currentUser.username" required class="form-control form-control-lg" type="text" placeholder="Your Name">
                 </fieldset>
                 <fieldset class="form-group">
-                    <textarea class="form-control form-control-lg" rows="8" placeholder="Short bio about you"></textarea>
+                    <textarea v-model="currentUser.bio" required class="form-control form-control-lg" rows="8" placeholder="Short bio about you"></textarea>
                 </fieldset>
                 <fieldset class="form-group">
-                    <input class="form-control form-control-lg" type="text" placeholder="Email">
+                    <input v-model="currentUser.email" required class="form-control form-control-lg" type="text" placeholder="Email">
                 </fieldset>
                 <fieldset class="form-group">
-                    <input class="form-control form-control-lg" type="password" placeholder="Password">
+                    <input v-model="currentUser.password" required minlength="8" class="form-control form-control-lg" type="password" placeholder="Password">
                 </fieldset>
                 <button class="btn btn-lg btn-primary pull-xs-right" @click="onSubmit">
                     Update Settings
@@ -37,16 +37,33 @@
 
 <script>
 import {updateUser} from '@/apis/user'
+import {mapState, mapMutations} from 'vuex'
 export default {
     name: 'Settings',
     middleware:['auth'],
     data(){
-        return {}
+        return {
+            currentUser:{
+                email:'',
+                image: '',
+                username:'',
+                bio:'',
+                password:''
+            }
+        }
+    },
+    computed:{
+        ...mapState(['user'])
+    },
+    mounted(){
+        Object.assign(this.currentUser,this.user)
     },
     methods:{
-        onSubmit(){
+        ...mapMutations(['setUser']),
+        async onSubmit(){
             try {
-                updateUser()
+                await updateUser(this.currentUser)
+                this.setUser(this.currentUser)
             } catch (error) {
                 
             }

@@ -6,10 +6,10 @@
         <div class="row">
 
             <div class="col-xs-12 col-md-10 offset-md-1">
-            <img src="http://i.imgur.com/Qr71crq.jpg" class="user-img" />
-            <h4>Eric Simons</h4>
+            <img :src="profile.image" class="user-img" />
+            <h4>{{profile.username}}</h4>
             <p>
-                Cofounder @GoThinkster, lived in Aol's HQ for a few months, kinda looks like Peeta from the Hunger Games
+                {{profile.bio}}
             </p>
             <button class="btn btn-sm btn-outline-secondary action-btn">
                 <i class="ion-plus-round"></i>
@@ -87,9 +87,18 @@
 </template>
 
 <script>
+import {getProfile} from '@/apis/user'
 export default {
     name: 'Profile',
-    middleware:['auth']
+    middleware:['auth'],
+    async asyncData({params}) {
+        const username = params.username
+        const {data} = await getProfile(username)
+        const { profile } = data
+        return {
+            profile
+        }
+    },
 }
 </script>
 
