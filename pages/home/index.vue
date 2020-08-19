@@ -23,7 +23,7 @@
                 }">Global Feed</nuxt-link>
               </li>
               <li class="nav-item" v-if="tag">
-                <nuxt-link class="nav-link" :class="{active: tab === 'tag'}" :to="{
+                <nuxt-link class="nav-link" :class="{active: tab === 'global_feed'}" :to="{
                   name: 'home', query:{tab:'tag', tag: tag}
                 }"># {{tag}}</nuxt-link>
               </li>
@@ -111,6 +111,7 @@ import { getArticles, getYourFeedArticles,addFavorite, deleteFavorite } from "@/
 import {getTags} from '@/apis/tag.js'
 export default {
   name: "Home",
+  middleware:['not-auth'],
   async asyncData({ query }) {
     const page = Number.parseInt(query.page || 1);
     const limit = 20;

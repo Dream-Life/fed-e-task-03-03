@@ -7,7 +7,7 @@
                 <textarea v-model="comment" class="form-control" placeholder="Write a comment..." rows="3"></textarea>
             </div>
             <div class="card-footer">
-                <img :src="user.image" class="comment-author-img" />
+                <img :src="article.author.image" class="comment-author-img" />
                 <button class="btn btn-sm btn-primary" @click="addComment">
                 Post Comment
                 </button>
@@ -52,7 +52,8 @@ export default {
             comment: ''
         }
     },
-    mounted() {
+    mounted() {    
+       console.log(this.user)
        this.getComments()
     },
     methods:{

@@ -11,7 +11,7 @@
             </p>
 
             <ul class="error-messages">
-                <template v-for="{messages,field} in errors">  
+                <template v-for="(messages,field) in errors">  
                     <li v-for="(item,index) in messages" :key="index">{{field}} {{item}}</li>
                 </template>
             </ul>
@@ -71,6 +71,8 @@ export default {
             } catch (error) {
                 console.dir(error)
                 this.errors = error.response.data.errors
+                console.log(this.errors)
+
             }
         }
     },

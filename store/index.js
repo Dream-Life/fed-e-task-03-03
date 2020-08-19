@@ -13,7 +13,9 @@ export const mutations = {
 export const actions = {
   nuxtServerInit ({ commit }, { req }) {
     let user = null
+    // console.log(req.headers)
     if (req.headers.cookie) {
+      // console.log('d')
       const parsed = cookieparser.parse(req.headers.cookie)
       try {
         user = JSON.parse(parsed.user)

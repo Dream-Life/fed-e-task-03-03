@@ -6,46 +6,38 @@
       {
         "path": "",
         "name": "home",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/home",
-        "_name": "_0d2d7ef8"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/home"
       },
       {
         "path": "/login",
         "name": "login",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/login",
-        "_name": "_33f71864"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/login"
       },
       {
         "path": "/register",
         "name": "register",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/login",
-        "_name": "_33f71864"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/login"
       },
       {
         "path": "/profile/:username",
         "name": "profile",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/profile",
-        "_name": "_288d4038"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/profile"
       },
       {
         "path": "/settings",
         "name": "settings",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/settings",
-        "_name": "_1cb2ad48"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/settings"
       },
       {
         "path": "/editor",
         "name": "editor",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/editor",
-        "_name": "_3e6017d2"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/editor"
       },
       {
         "path": "/article/:slug",
         "name": "article",
-        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/article",
-        "_name": "_5af8b99e"
+        "component": "/Users/ting.ye/Documents/大前端/fed-e-task-03-03/pages/article"
       }
-    ],
-    "_name": "_4a2ef18f"
+    ]
   }
 ]

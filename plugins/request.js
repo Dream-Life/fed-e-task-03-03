@@ -7,7 +7,9 @@ export const request = axios.create({
 export default ({store}) => {
     request.interceptors.request.use(function(config){
         const {user} = store.state
-        config.headers.Authorization = `Token ${user.token}` 
+        if(user){
+         config.headers.Authorization = `Token ${user.token}` 
+        }
         return config
     }, function (error){
         return Promise.reject(error)
